@@ -1,0 +1,32 @@
+import * as THREE from "three";
+import Experience from "../Experience.js";
+
+export default class Room {
+    constructor() {
+        this.experience = new Experience();
+        this.scene = this.experience.scene;
+         this.resources = this.experience.resources;
+        this.time = this.experience.time;
+         this.room = this.resources.items.room;
+
+         this.actualRoom = this.room.scene;
+
+         console.log('====================================');
+         console.log(this.actualRoom);
+         console.log('====================================');
+        
+    this.setModel();
+    }
+
+    setModel() {
+        this.scene.add(this.actualRoom)
+    }
+
+    resize() {
+
+    }
+
+    update() {
+
+    }
+}
