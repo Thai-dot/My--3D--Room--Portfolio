@@ -3,7 +3,7 @@ import Experience from "./Experience.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 export default class Camera {
-    constructor() { 
+    constructor() {
         this.experience = new Experience();
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
@@ -16,35 +16,43 @@ export default class Camera {
 
     createPerspectiveCamera() {
         this.perspectiveCamera = new THREE.PerspectiveCamera(
-            40,
+            10,
             this.sizes.aspect,
             0.1,
             1000
         );
         this.scene.add(this.perspectiveCamera);
-        this.perspectiveCamera.position.x = 5;
-         this.perspectiveCamera.position.y = 6;
-         this.perspectiveCamera.position.z = 12;
+        this.perspectiveCamera.position.x = 1;
+        this.perspectiveCamera.position.y = 20;
+        this.perspectiveCamera.position.z = 35;
     }
 
     createOrthographicCamera() {
-        this.frustrum=5
+       
         this.orthographicCamera = new THREE.OrthographicCamera(
             (-this.sizes.aspect * this.sizes.frustrum) / 2,
             (this.sizes.aspect * this.sizes.frustrum) / 2,
             this.sizes.frustrum / 2,
             -this.sizes.frustrum / 2,
-            -100,
-            100
+            -50,
+            50
         );
 
+
         // 6.5
-        this.orthographicCamera.position.y = 5.65;
-        this.orthographicCamera.position.z = 10;
+        this.orthographicCamera.position.y = 4.65;
+        this.orthographicCamera.position.z = 5;
         this.orthographicCamera.rotation.x = -Math.PI / 6;
 
         this.scene.add(this.orthographicCamera);
 
+        const size = 10;
+        const divisions = 10;
+
+        // const gridHelper = new THREE.GridHelper(size, divisions);
+        // this.scene.add(gridHelper);
+        // const axesHelper = new THREE.AxesHelper(5);
+        // this.scene.add(axesHelper);
 
 
     }
@@ -73,7 +81,7 @@ export default class Camera {
     update() {
         // console.log(this.perspectiveCamera.position);
         this.controls.update();
-       
+
         // this.helper.matrixWorldNeedsUpdate = true;
         // this.helper.update();
         // this.helper.position.copy(this.orthographicCamera.position);
