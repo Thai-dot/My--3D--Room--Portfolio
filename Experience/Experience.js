@@ -5,6 +5,7 @@ import Renderer from './Renderer';
 import Time from './Utils/Time';
 import World from './World/World';
 import Resources from './Utils/Resources';
+import Theme from './Theme';
 import assets from './Utils/assets';
 
 export default class Experience {
@@ -21,6 +22,7 @@ export default class Experience {
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.resources = new Resources(assets);
+        this.theme = new Theme();
         this.world = new World();
 
         this.sizes.on('resize', () => {
