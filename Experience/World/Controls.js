@@ -97,7 +97,7 @@ export default class Controls {
           },
         }).to(this.room.position, {
           x: () => {
-            return this.sizes.width * 0.002;
+            return this.sizes.width * 0.0018;
           },
         });
 
